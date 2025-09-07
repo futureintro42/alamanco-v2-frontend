@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Link as RouterLink } from "react-router-dom";
 import {
   Grid,
   Box,
@@ -26,7 +27,8 @@ const CardView = ({ dataRow }) => {
       }}
     >
       <Card sx={{ mb: 4, width: "100%" }}>
-        <Box>
+        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <RouterLink to="/cards/search" style={{ textDecoration: "none", color: "#3366FF", alignContent: "center", paddingLeft: "20px" }}>Search cards</RouterLink>
           <ReactToPrint
             bodyClass="print-agreement"
             content={() => ref.current}
@@ -81,7 +83,7 @@ const CardView = ({ dataRow }) => {
                   <QRCode
                     size={256}
                     style={{ height: "80px", width: "100%" }}
-                    value={`${window.location.origin}/cards/details/${dataRow._id}`}
+                    value={`${window.location.origin}/cards/search`}
                     viewBox={`0 0 256 256`}
                   />
                 </Box>

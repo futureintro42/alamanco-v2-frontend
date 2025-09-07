@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Link as RouterLink } from "react-router-dom";
 import {
   Grid,
   Box,
@@ -108,7 +109,8 @@ const ViewCertificate = ({ title, dataRow }) => {
       }}
     >
       <Card sx={{ mb: 4, width: "100%" }}>
-        <Box>
+        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <RouterLink to="/certificate/search" style={{ textDecoration: "none", color: "#3366FF", alignContent: "center", paddingLeft: "20px" }}>Search certificate</RouterLink>
           <ReactToPrint
             bodyClass="print-agreement"
             content={() => ref.current}
@@ -390,7 +392,7 @@ const ViewCertificate = ({ title, dataRow }) => {
                             <QRCode
                               size={280}
                               style={{ height: "60px", width: "100px" }}
-                              value={`${window.location.origin}/certificate/details/${_id}`}
+                              value={`${window.location.origin}/certificate/search`}
                               viewBox={`0 0 280 280`}
                             />
                           </Grid>

@@ -185,3 +185,60 @@ export const FIND_PROFILE_DETAIL = gql`
     }
   }
 `;
+
+export const FIND_CARD_BY_SEARCH = gql`
+  query findCardBySearch($input: objSearchInput!) {
+    findCardBySearch(input: $input) {
+      message
+      severity
+      response {
+        _id
+        id
+        name
+        iqama_number
+        issue_date
+        expiry_date
+        certified_as
+        profile_pic
+        company
+        examiner
+        createdAt
+        updateddAt
+      }
+    }
+  }
+`;
+
+export const FIND_INVOICE_BY_SEARCH = gql`
+  query findInvoiceBySearch($input: objSearchInput!) {
+    findInvoiceBySearch(input: $input) {
+      message
+      severity
+      response {
+        _id
+        id
+        sticker_number
+        reference_number
+        equipment_type
+        equipment_description
+        make
+        serial_number
+        year_of_manufacturing
+        plant_number
+        location_of_equipment
+        owner_business_name
+        owner_business_address
+        details
+        standard_specification
+        business_name
+        business_address
+        inspection_date
+        inspection_next_date
+        inspector_name
+        resultStatus
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
