@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLazyQuery } from "@apollo/client";
 import {
-  Box,
   Typography,
   Card,
   Container,
@@ -10,6 +9,7 @@ import {
   MenuItem,
   Grid,
   Alert,
+  CardContent,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { FIND_CARD_BY_SEARCH, FIND_INVOICE_BY_SEARCH } from "../../../constants/Query";
@@ -71,60 +71,71 @@ const SearchDetails = ({ pageType }) => {
   return (
     <Container maxWidth={false} sx={{ maxWidth: "800px" }}>
       <Card sx={{ mt: 10, border: 1, borderColor: "primary.dark" }}>
-        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <Typography variant="h1" gutterBottom sx={{ marginTop: "20px" }}>
+        <CardContent>
+          <Grid container spacing={2}>
+          <Grid item xs={12}>
+          <Typography variant="h1" gutterBottom sx={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
             {`Search ${pageType}`}
           </Typography>
-           <Box sx={{ display: "flex", gap: 1, mb: 2 }}>
-              <Grid item xs={12}>
-                {severity && message && (
-                  <Grid item xs={12}>
-                    <Alert variant="standard" severity={severity} sx={{ width: "100%", mt: 1 }}>
-                      {message}
-                    </Alert>
+          </Grid>
+            <Grid item xs={12}>
+              {severity && message && (
+                <Grid item xs={12}>
+                  <Alert variant="standard" severity={severity} sx={{ width: "100%", mt: 1 }}>
+                    {message}
+                  </Alert>
+                </Grid>
+              )}
+            </Grid>
+          <Grid item xs={12}>
+              <form onSubmit={handleSearch}>
+                <Grid container spacing={2}>
+                  {/* Dropdown */}
+                  <Grid item xs={12} sm={5}>
+                    <TextField
+                      select
+                      label="Search By"
+                      value={searchField}
+                      onChange={(e) => setSearchField(e.target.value)}
+                      fullWidth
+                    >
+                      {searchOptions.map((opt) => (
+                        <MenuItem key={opt.value} value={opt.value}>
+                          {opt.label}
+                        </MenuItem>
+                      ))}
+                    </TextField>
                   </Grid>
-                )}
-              </Grid>
-              </Box>
-          <Box sx={{ width: "320px", margin: "20px auto", display: "flex", justifyContent: "center" }}>
-            <Box sx={{ display: "flex", gap: 1, mb: 2 }}>
-              {/* Search Field Dropdown */}
-              <TextField
-                select
-                label="Search By"
-                value={searchField}
-                onChange={(e) => setSearchField(e.target.value)}
-                sx={{ minWidth: 200 }}
-              >
-                {searchOptions.map((opt) => (
-                  <MenuItem key={opt.value} value={opt.value}>
-                    {opt.label}
-                  </MenuItem>
-                ))}
-              </TextField>
 
-              {/* Search Input */}
-              <TextField
-                fullWidth
-                label="Search"
-                variant="outlined"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                sx={{ minWidth: 300 }}
-              />
+                  {/* Search Input */}
+                  <Grid item xs={12} sm={5}>
+                    <TextField
+                      label="Search"
+                      variant="outlined"
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      fullWidth
+                    />
+                  </Grid>
 
-              {/* Search Button */}
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleSearch}
-                disabled={isSearchDisabled}
-              >
-                Search
-              </Button>
-            </Box>
-          </Box>
-        </Box>
+                  {/* Search Button */}
+                  <Grid item xs={12} sm={2} display="flex" alignItems="center">
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      size="large"
+                      color="primary"
+                      fullWidth
+                      disabled={isSearchDisabled}
+                    >
+                      Search
+                    </Button>
+                  </Grid>
+                </Grid>
+              </form>
+          </Grid>
+          </Grid>
+          </CardContent>
       </Card>
     </Container>
   );
