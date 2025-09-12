@@ -147,6 +147,8 @@ const Cards = () => {
           title="Card List"
           buttonTitle="Create Card"
           url="/cards/create"
+          searchTitle="Search Card"
+          searchURL="/cards/search"
         />
       </Grid>
 

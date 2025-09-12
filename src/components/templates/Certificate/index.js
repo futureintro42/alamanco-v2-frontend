@@ -151,6 +151,8 @@ const Certificate = () => {
           title="Certificate List"
           buttonTitle="Create Certificate"
           url="/certificate/create"
+          searchTitle="Search Certificate"
+          searchURL="/certificate/search"
         />
       </Grid>
 
