@@ -58,7 +58,6 @@ const ViewCertificate = ({ title, dataRow }) => {
     sticker_number,
     resultStatus = "",
     year_of_manufacturing,
-    _id,
     id,
   } = dataRow || {};
   const descriptionRows = [
