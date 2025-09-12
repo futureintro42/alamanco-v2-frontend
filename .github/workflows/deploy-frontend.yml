@@ -1,0 +1,49 @@
+name: Deploy Frontend
+
+on:
+  push:
+    branches:
+      - main   # adjust if using another branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.8.0  # adjust your Node version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: NODE_OPTIONS="--max_old_space_size=4096" npm run build
+
+      - name: Archive production build
+        run: tar -czf build.tar.gz build
+
+      - name: Set up SSH key
+        run: |
+          echo "${{ secrets.SERVER_SSH_KEY }}" > private_key
+          chmod 600 private_key
+          eval "$(ssh-agent -s)"
+          ssh-add private_key
+
+      - name: Copy build to server
+        run: scp -o StrictHostKeyChecking=no build.tar.gz ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/tmp/
+
+      - name: Deploy on server
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "
+            sudo rm -rf /var/www/html/frontend/* &&
+            tar -xzf /tmp/build.tar.gz -C /tmp &&
+            sudo cp -r /tmp/build/* /var/www/html/frontend/ &&
+            sudo chown -R www-data:www-data /var/www/html/frontend &&
+            sudo chmod -R 755 /var/www/html/frontend &&
+            rm -rf /tmp/build /tmp/build.tar.gz
+          "
