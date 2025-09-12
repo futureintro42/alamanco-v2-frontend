@@ -67,7 +67,7 @@ const SearchDetails = ({ pageType }) => {
   }, [cardLoading, certLoading, cardData, certData, cardError, certError, pageType, navigate]);
 
   const searchOptions = SEARCH_FIELDS[pageType] || [];
-  const isSearchDisabled = !searchField || !searchTerm.trim();
+  // const isSearchDisabled = !searchField || !searchTerm.trim();
   const handleDashboard = () => {
     if(pageType){
     navigate(`/${pageType.toLowerCase()}`);
@@ -85,7 +85,7 @@ const SearchDetails = ({ pageType }) => {
 
   return (
     <Container maxWidth={false} sx={{ maxWidth: "800px" }}>
-      <Card sx={{ mt: 10, border: 1, borderColor: "primary.dark" }}>
+      <Card sx={{ mt: 10, border: 1, borderColor: "primary.light", boxShadow: "5px 5px 5px 5px #ccc" }}>
         <CardActions>
             <Button size="small" onClick={handleDashboard}>{`${pageType} List`}</Button>
             <Button size="small" onClick={handleSearchRedirect}>{`${pageType === "cards" ? 'Certificate': 'Cards'}`} Search</Button>
@@ -94,7 +94,7 @@ const SearchDetails = ({ pageType }) => {
           <Grid container spacing={2}>
           <Grid item xs={12}>
           <Typography variant="h1" gutterBottom sx={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
-            {`Search ${pageType}`}
+            {`Search ${pageType === "cards" ? "Cards" : "Certificate"}`}
           </Typography>
           </Grid>
             <Grid item xs={12}>
@@ -110,7 +110,7 @@ const SearchDetails = ({ pageType }) => {
               <form onSubmit={handleSearch}>
                 <Grid container spacing={2}>
                   {/* Dropdown */}
-                  <Grid item xs={12} sm={5}>
+                  <Grid item xs={12} sm={5} sx={{display: 'none'}}>
                     <TextField
                       select
                       label="Search By"
@@ -127,9 +127,9 @@ const SearchDetails = ({ pageType }) => {
                   </Grid>
 
                   {/* Search Input */}
-                  <Grid item xs={12} sm={5}>
+                  <Grid item xs={12} sm={8}>
                     <TextField
-                      label="Search"
+                      label={`${pageType} id`}
                       variant="outlined"
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
@@ -138,14 +138,15 @@ const SearchDetails = ({ pageType }) => {
                   </Grid>
 
                   {/* Search Button */}
-                  <Grid item xs={12} sm={2} display="flex" alignItems="center">
+                  <Grid item xs={12} sm={4} display="flex" alignItems="center">
                     <Button
                       type="submit"
                       variant="contained"
                       size="large"
                       color="primary"
+                      sx={{height: '52px'}}
                       fullWidth
-                      disabled={isSearchDisabled}
+                      // disabled={isSearchDisabled}
                     >
                       Search
                     </Button>

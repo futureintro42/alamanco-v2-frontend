@@ -1,9 +1,12 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
+import {
+  Box,
+  Typography,
+  Container,
+  Grid,
+  Link,
+} from "@mui/material";
 
 function Copyright() {
   return (
@@ -43,7 +46,19 @@ export default function Footer() {
           }}
         >
           <Container maxWidth="sm">
-            <Copyright />
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <Copyright />
+              </Grid>
+              <Grid item xs={12}>
+                  <Typography sx={{ fontSize: ".75rem" }}>
+                    Web:{" "}
+                    <Link href="https://alamanextuv.com/">
+                      www.alamanextuv.com
+                    </Link>
+                  </Typography>
+              </Grid>
+            </Grid>
           </Container>
         </Box>
       </Box>
