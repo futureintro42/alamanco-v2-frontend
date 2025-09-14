@@ -15,7 +15,7 @@ const AuthHeader = () => {
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: "none", md: "flex" },
+              display: "flex",
               flexDirection: "column",
             }}
           >
@@ -24,10 +24,11 @@ const AuthHeader = () => {
               component="h4"
               sx={{
                 mr: 2,
-                display: { xs: "none", md: "flex" },
+                display: "flex",
                 flexGrow: 1,
                 // fontFamily: 'monospace',
-                fontWeight: 700,
+                fontWeight: "700",
+                fontSize: { xs: "1rem", md: "1.25rem" }, 
                 letterSpacing: ".3rem",
                 color: "inherit",
                 textDecoration: "none",

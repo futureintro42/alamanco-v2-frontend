@@ -58,7 +58,7 @@ const SearchDetails = ({ pageType }) => {
       setSeverity(response.severity);
       setMessage(response.message);
       if (response.severity?.includes("success")) {
-        navigate(`/${pageType}/view/${response?.response?._id}`);
+        navigate(`/${pageType}/details/${response?.response?._id}`);
       }
     };
 
