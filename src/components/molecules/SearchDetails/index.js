@@ -68,11 +68,11 @@ const SearchDetails = ({ pageType }) => {
 
   const searchOptions = SEARCH_FIELDS[pageType] || [];
   // const isSearchDisabled = !searchField || !searchTerm.trim();
-  const handleDashboard = () => {
-    if(pageType){
-    navigate(`/${pageType.toLowerCase()}`);
-    }
-  }
+  // const handleDashboard = () => {
+  //   if(pageType){
+  //   navigate(`/${pageType.toLowerCase()}`);
+  //   }
+  // }
   const handleSearchRedirect = () => {
     let redirectURL = "certificate";
     if(pageType === "certificate"){
@@ -87,7 +87,7 @@ const SearchDetails = ({ pageType }) => {
     <Container maxWidth={false} sx={{ maxWidth: "800px" }}>
       <Card sx={{ mt: 10, border: 1, borderColor: "primary.light", boxShadow: "5px 5px 5px 5px #ccc" }}>
         <CardActions>
-            <Button size="small" onClick={handleDashboard}>{`${pageType} List`}</Button>
+            {/* <Button size="small" onClick={handleDashboard}>{`${pageType} List`}</Button> */}
             <Button size="small" onClick={handleSearchRedirect}>{`${pageType === "cards" ? 'Certificate': 'Cards'}`} Search</Button>
           </CardActions>
         <CardContent>
