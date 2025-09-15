@@ -85,15 +85,11 @@ const SearchDetails = ({ pageType }) => {
 
   return (
     <Container maxWidth={false} sx={{ maxWidth: "800px" }}>
-      <Card sx={{ mt: 10, border: 1, borderColor: "primary.light", boxShadow: "5px 5px 5px 5px #ccc" }}>
-        <CardActions>
-            {/* <Button size="small" onClick={handleDashboard}>{`${pageType} List`}</Button> */}
-            <Button size="small" onClick={handleSearchRedirect}>{`${pageType === "cards" ? 'Certificate': 'Cards'}`} Search</Button>
-          </CardActions>
+      <Card sx={{ mt: 10, border: 1, borderColor: "#1f4074", boxShadow: "5px 5px 5px 5px #00000024" }}>
         <CardContent>
           <Grid container spacing={2}>
           <Grid item xs={12}>
-          <Typography variant="h1" gutterBottom sx={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+          <Typography variant="h1" gutterBottom sx={{ display: "flex", justifyContent: "center", marginTop: "20px", color: '#1f4074' }}>
             {`Search ${pageType === "cards" ? "Cards" : "Certificate"}`}
           </Typography>
           </Grid>
@@ -144,7 +140,7 @@ const SearchDetails = ({ pageType }) => {
                       variant="contained"
                       size="large"
                       color="primary"
-                      sx={{height: '52px'}}
+                      sx={{height: '52px', backgroundColor: '#1f4074'}}
                       fullWidth
                       // disabled={isSearchDisabled}
                     >
@@ -156,6 +152,10 @@ const SearchDetails = ({ pageType }) => {
           </Grid>
           </Grid>
           </CardContent>
+          <CardActions>
+            {/* <Button size="small" onClick={handleDashboard}>{`${pageType} List`}</Button> */}
+            <Button size="large" onClick={handleSearchRedirect} sx={{color: '#1f4074'}}>{`${pageType === "cards" ? 'Certificate': 'Cards'}`} Search</Button>
+          </CardActions>
       </Card>
     </Container>
   );
