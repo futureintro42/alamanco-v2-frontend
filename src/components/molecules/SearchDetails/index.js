@@ -10,7 +10,6 @@ import {
   Grid,
   Alert,
   CardContent,
-  CardActions
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { FIND_CARD_BY_SEARCH, FIND_INVOICE_BY_SEARCH } from "../../../constants/Query";
@@ -73,19 +72,10 @@ const SearchDetails = ({ pageType }) => {
   //   navigate(`/${pageType.toLowerCase()}`);
   //   }
   // }
-  const handleSearchRedirect = () => {
-    let redirectURL = "certificate";
-    if(pageType === "certificate"){
-      redirectURL = "cards"
-    }
-    setSearchTerm("");
-    setSearchField("id");
-    navigate(`/${redirectURL}/search`);
-  }
 
   return (
-    <Container maxWidth={false} sx={{ maxWidth: "800px" }}>
-      <Card sx={{ mt: 10, border: 1, borderColor: "#1f4074", boxShadow: "5px 5px 5px 5px #00000024" }}>
+    <Container maxWidth={false}>
+      <Card sx={{ border: 1, borderColor: "#fff", boxShadow: "5px 5px 5px 5px #00000024" }}>
         <CardContent>
           <Grid container spacing={2}>
           <Grid item xs={12}>
@@ -152,10 +142,6 @@ const SearchDetails = ({ pageType }) => {
           </Grid>
           </Grid>
           </CardContent>
-          <CardActions>
-            {/* <Button size="small" onClick={handleDashboard}>{`${pageType} List`}</Button> */}
-            <Button size="large" onClick={handleSearchRedirect} sx={{color: '#1f4074'}}>{`${pageType === "cards" ? 'Certificate': 'Cards'}`} Search</Button>
-          </CardActions>
       </Card>
     </Container>
   );
