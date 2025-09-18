@@ -74,7 +74,7 @@ const SearchDetails = ({ pageType }) => {
   // }
 
   return (
-    <Container maxWidth={false}>
+    <Container maxWidth={false} disableGutters>
       <Card sx={{ border: 1, borderColor: "#fff", boxShadow: "5px 5px 5px 5px #00000024" }}>
         <CardContent>
           <Grid container spacing={2}>

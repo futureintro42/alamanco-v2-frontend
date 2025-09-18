@@ -31,20 +31,6 @@ const WebFooter = () => {
   return (
     <Box component="footer" sx={{ bgcolor: "#1f4074", color: "white", py: 6 }}>
       <Container maxWidth="lg">
-        {/* Top Icons Row */}
-        <Grid container justifyContent="space-between" alignItems="center">
-          {["support", "service", "guranty", "elite_service"].map((item) => (
-            <Box
-              key={item}
-              component="img"
-              src={`${process.env.PUBLIC_URL}/assets/images/${item}.png`}
-              alt={item}
-              sx={{ height: 80, width: 80 }}
-            />
-          ))}
-        </Grid>
-
-        <Divider sx={{ borderColor: "rgba(255,255,255,0.2)", my: 4 }} />
 
         {/* Main Footer Sections */}
         <Grid container spacing={4}>

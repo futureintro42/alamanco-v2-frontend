@@ -4,8 +4,10 @@ import WebNavigation from "../../molecules/WebNavigation";
 import WebFooter from "../../molecules/Footer/WebFooter";
 import HeroBanner from "../../molecules/Banner/HeroBanner";
 import PageBanner from "../../molecules/Banner/PageBanner";
+import PageTitle from "../../atoms/Title";
+import ImageList from "../../molecules/ImageList";
 
-const WebLayout = ({ pageTitle, isHome = false, children }) => { 
+const WebLayout = ({ pageTitle, isHome = false, children }) => {
   return (
     <Box
       sx={{
@@ -18,7 +20,7 @@ const WebLayout = ({ pageTitle, isHome = false, children }) => {
       <WebNavigation />
 
       {/* If homepage → HeroBanner with transparent nav */}
-      {isHome ? <HeroBanner /> : <PageBanner pageTitle={pageTitle} /> }
+      {isHome ? <HeroBanner /> : <PageBanner />}
 
       {/* Page content */}
       <Box
@@ -32,7 +34,9 @@ const WebLayout = ({ pageTitle, isHome = false, children }) => {
           py: 4,
         }}
       >
+        <PageTitle pageTitle={pageTitle} />
         {children}
+        <ImageList />
       </Box>
 
       {/* Footer */}
