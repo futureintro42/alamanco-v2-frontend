@@ -6,9 +6,9 @@ const PageBanner = ({pageTitle}) => {
     <Box
       sx={{
         width: "100%",
-        height: "300px",
+        height: {xs: '300px', md: '400px'},
         //backgroundImage: `url(${process.env.PUBLIC_URL}/assets/images/banner.jpg)`,
-        backgroundImage: "url(https://alamanextuv.com/img/b3.jpg)",
+        backgroundImage: "url(https://alamanextuv.com/uploads/images/9bd203ef69213cdacbd3a79b5b4b2d2f.jpg)",
         backgroundSize: "cover",
         backgroundPosition: "center",
         position: "relative",
@@ -20,7 +20,7 @@ const PageBanner = ({pageTitle}) => {
       }}
     >
       <Container maxWidth="lg">
-        <Typography variant="h2" fontWeight="bold" sx={{color: "#1f4074"}}>
+        <Typography variant="h2" fontWeight="bold" sx={{color: "#1f4074", mt: {xs: '30%', md: '20%'}}}>
           {pageTitle}
         </Typography>
       </Container>

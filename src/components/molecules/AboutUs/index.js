@@ -15,7 +15,7 @@ const AboutUs = () => {
         </Grid>
         <Grid item xs={12} md={5} sx={{ml: {xs: 0, md: 4}}}>
             <Typography variant="body1">
-                We provide TUV inspection, certification and testing services for
+                We provide inspection, certification and testing services for
                 cranes, heavy equipment and trucks to confirm compliance with all
                 laws and ensure inspection standards are met. Our years of
                 experience and prompt inspections help extend operating life and

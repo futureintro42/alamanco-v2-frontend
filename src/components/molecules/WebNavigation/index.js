@@ -44,11 +44,21 @@ const WebNavigation = () => {
     <>
       <AppBar
         position="fixed"
-        elevation={scrolled ? 4 : 0}
+        elevation={scrolled ? 6 : 0} // shadow when scrolling
         sx={{
           transition: "all 0.3s ease",
-          backgroundColor: scrolled ? "white" : "transparent",
-          color: scrolled ? "black" : "white",
+          backgroundColor: {
+            xs: "white", // Mobile: always white
+            md: scrolled ? "white" : "transparent", // Desktop: transparent → white
+          },
+          color: {
+            xs: "#1f4074",
+            md: scrolled ? "#1f4074" : "white",
+          },
+          boxShadow: {
+            xs: "0px 2px 10px rgba(0,0,0,0.08)", // soft shadow for mobile
+            md: scrolled ? "0px 4px 12px rgba(0,0,0,0.1)" : "none",
+          },
         }}
       >
         <Container>
@@ -56,9 +66,17 @@ const WebNavigation = () => {
             {/* Logo */}
             <Box
               component="img"
-              src={`${process.env.PUBLIC_URL}/assets/images/logo_home.png`}
+              src={`${process.env.PUBLIC_URL}/assets/images/logo_clean.png`}
               alt="Company Logo"
-              sx={{ height: "100px", width: "100px", cursor: "pointer" }}
+              sx={{
+                height: "80px",
+                width: "80px",
+                cursor: "pointer",
+                // borderRadius: "50%", // rounded look
+                // p: 1,
+                // backgroundColor: "transparent",
+                // boxShadow: "0px 2px 6px rgba(0,0,0,0.1)", // glow effect
+              }}
             />
 
             {/* Desktop Menu */}
@@ -75,13 +93,11 @@ const WebNavigation = () => {
                   href={item.to}
                   underline="none"
                   sx={{
-                    color: "#1f4074", // scrolled ? "#1f4074" : "white",
-                    fontWeight: "600",
-                    fontSize: "1rem",
+                    color: "#1f4074",
+                    fontWeight: "700",
+                    fontSize: "1.25rem",
                     position: "relative",
-                    "&:hover": {
-                      color: "#ffcc00",
-                    },
+                    "&:hover": { color: "#ffcc00" },
                     "&::after": {
                       content: '""',
                       position: "absolute",
@@ -92,9 +108,7 @@ const WebNavigation = () => {
                       bgcolor: "#ffcc00",
                       transition: "width 0.3s ease",
                     },
-                    "&:hover::after": {
-                      width: "100%",
-                    },
+                    "&:hover::after": { width: "100%" },
                   }}
                 >
                   {item.key}
@@ -108,7 +122,7 @@ const WebNavigation = () => {
               onClick={handleDrawerToggle}
               sx={{
                 display: { xs: "flex", md: "none" },
-                color:  "#1f4074",// scrolled ? "black" : "white",
+                color: "#1f4074",
               }}
             >
               <MenuIcon />
@@ -133,10 +147,19 @@ const WebNavigation = () => {
                 component="a"
                 href={item.to}
                 onClick={handleDrawerToggle}
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "#f5f5f5",
+                  },
+                }}
               >
                 <ListItemText
                   primary={item.key}
-                  sx={{ textAlign: "center", fontWeight: "600" }}
+                  sx={{
+                    textAlign: "center",
+                    fontWeight: "600",
+                    color: "#1f4074",
+                  }}
                 />
               </ListItem>
             ))}
