@@ -1,15 +1,15 @@
 import { Grid } from "@mui/material";
 import WebLayout from "../WebLayout";
-import AboutUs from "../../molecules/AboutUs";
+import ContactUs from "../../molecules/ContactUs";
 
-const About = () => {
-    return <WebLayout pageTitle="About the company">
+const Contact = () => {
+    return <WebLayout pageTitle="Contact us">
     <Grid container>
         <Grid item xs={12}>
-            <AboutUs />
+            <ContactUs />
         </Grid>
     </Grid>
     </WebLayout>
 }
 
-export default About
+export default Contact

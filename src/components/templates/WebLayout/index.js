@@ -34,7 +34,7 @@ const WebLayout = ({ pageTitle, isHome = false, children }) => {
           py: 4,
         }}
       >
-        <PageTitle pageTitle={pageTitle} />
+        {pageTitle && <PageTitle pageTitle={pageTitle} />}
         {children}
         <ImageList />
       </Box>

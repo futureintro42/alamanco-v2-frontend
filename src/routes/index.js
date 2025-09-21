@@ -28,6 +28,9 @@ const ChangePassword = lazy(() => import("../components/templates/ChangePassword
 const Profile = lazy(() => import("../components/templates/Profile"));
 const Search = lazy(() => import("../components/templates/Search"));
 const About = lazy(() => import("../components/templates/AboutUs"));
+const Services = lazy(() => import("../components/templates/Services"));
+const Home = lazy(() => import("../components/templates/Home"));
+const Contact = lazy(() => import("../components/templates/ContactUs"));
 
 
 const Switcher = () => {
@@ -63,7 +66,10 @@ const Switcher = () => {
           <Route path="/certificate/details/:id" element={<CertificateInfo />} />
           <Route path="/cards/search" element={<Search />} />
           <Route path="/certificate/search" element={<Search />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about-us" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/contact-us" element={<Contact />} />
         </Route>
       </Routes>
     </Suspense>

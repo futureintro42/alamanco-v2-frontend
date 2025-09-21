@@ -23,12 +23,12 @@ const WebNavigation = () => {
   };
 
   const menuItems = [
-    { key: "Home", to: "https://alamanextuv.com/" },
+    { key: "Home", to: "/home" },
     { key: "Cards", to: "/cards/search" },
     { key: "Certificates", to: "/certificate/search" },
-    { key: "Services", to: "https://alamanextuv.com/ar/services.html" },
-    { key: "About", to: "/about" },
-    { key: "Contact", to: "https://alamanextuv.com/ar/contact.html" },
+    { key: "Services", to: "/services" },
+    { key: "About", to: "/about-us" },
+    { key: "Contact", to: "/contact-us" },
   ];
 
   // Detect scroll for transparent → solid navbar
