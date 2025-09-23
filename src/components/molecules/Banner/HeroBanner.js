@@ -118,6 +118,7 @@ const HeroBanner = () => {
               fontWeight: "bold",
               fontSize: "1rem",
               textTransform: "none",
+              backgroundColor: "#1f4074",
             }}
           >
             Learn More

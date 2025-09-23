@@ -31,6 +31,7 @@ const About = lazy(() => import("../components/templates/AboutUs"));
 const Services = lazy(() => import("../components/templates/Services"));
 const Home = lazy(() => import("../components/templates/Home"));
 const Contact = lazy(() => import("../components/templates/ContactUs"));
+const ContactUsList = lazy(() => import("../components/templates/ContactUsList"));
 
 
 const Switcher = () => {
@@ -38,7 +39,6 @@ const Switcher = () => {
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route element={<AuthLayout />}>
-          <Route path="/" element={<AuthLogin />} />
           <Route path="/login" element={<AuthLogin />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -57,9 +57,11 @@ const Switcher = () => {
           <Route path="/change-password" element={<ChangePassword />}/>
           <Route path="/profile" element={<Profile />}/>
           <Route path="/profile/:id" element={<Profile />}/>
+          <Route path="/contact-us-list" element={<ContactUsList />}/>
         </Route>
 
         <Route>
+          <Route path="/" element={<Home />} />
           <Route path="/cards/view/:id" element={<ViewCard />} />
           <Route path="/cards/details/:id" element={<CardInfo />} />
           <Route path="/certificate/view/:id" element={<ViewCertificate />} />

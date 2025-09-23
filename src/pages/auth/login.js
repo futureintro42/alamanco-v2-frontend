@@ -9,7 +9,6 @@ import LoginForms from '../../components/molecules/LoginForm';
 // ================================|| LOGIN ||================================ //
 
 const Login = () => {
-  console.log('Login call');
   return (
     <AuthLayout>
       <Grid container spacing={3}>

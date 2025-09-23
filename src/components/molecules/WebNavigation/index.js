@@ -11,6 +11,7 @@ import {
   ListItem,
   ListItemText,
   Box,
+  Button,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -23,7 +24,7 @@ const WebNavigation = () => {
   };
 
   const menuItems = [
-    { key: "Home", to: "/home" },
+    { key: "Home", to: "/" },
     { key: "Cards", to: "/cards/search" },
     { key: "Certificates", to: "/certificate/search" },
     { key: "Services", to: "/services" },
@@ -44,19 +45,19 @@ const WebNavigation = () => {
     <>
       <AppBar
         position="fixed"
-        elevation={scrolled ? 6 : 0} // shadow when scrolling
+        elevation={scrolled ? 6 : 0}
         sx={{
           transition: "all 0.3s ease",
           backgroundColor: {
-            xs: "white", // Mobile: always white
-            md: scrolled ? "white" : "transparent", // Desktop: transparent → white
+            xs: "white",
+            md: scrolled ? "white" : "transparent",
           },
           color: {
             xs: "#1f4074",
             md: scrolled ? "#1f4074" : "white",
           },
           boxShadow: {
-            xs: "0px 2px 10px rgba(0,0,0,0.08)", // soft shadow for mobile
+            xs: "0px 2px 10px rgba(0,0,0,0.08)",
             md: scrolled ? "0px 4px 12px rgba(0,0,0,0.1)" : "none",
           },
         }}
@@ -68,15 +69,7 @@ const WebNavigation = () => {
               component="img"
               src={`${process.env.PUBLIC_URL}/assets/images/logo_clean.png`}
               alt="Company Logo"
-              sx={{
-                height: "80px",
-                width: "80px",
-                cursor: "pointer",
-                // borderRadius: "50%", // rounded look
-                // p: 1,
-                // backgroundColor: "transparent",
-                // boxShadow: "0px 2px 6px rgba(0,0,0,0.1)", // glow effect
-              }}
+              sx={{ height: "80px", width: "80px", cursor: "pointer" }}
             />
 
             {/* Desktop Menu */}
@@ -114,16 +107,30 @@ const WebNavigation = () => {
                   {item.key}
                 </Link>
               ))}
+              {/* Login Button */}
+              <Button
+                href="/login"
+                variant="contained"
+                sx={{
+                  ml: 2,
+                  backgroundColor: "#1f4074",
+                  color: "#fff",
+                  fontWeight: "700",
+                  textTransform: "none",
+                  "&:hover": {
+                    backgroundColor: "#e6b800",
+                  },
+                }}
+              >
+                Login
+              </Button>
             </Box>
 
             {/* Mobile Menu Button */}
             <IconButton
               edge="end"
               onClick={handleDrawerToggle}
-              sx={{
-                display: { xs: "flex", md: "none" },
-                color: "#1f4074",
-              }}
+              sx={{ display: { xs: "flex", md: "none" }, color: "#1f4074" }}
             >
               <MenuIcon />
             </IconButton>
@@ -147,22 +154,33 @@ const WebNavigation = () => {
                 component="a"
                 href={item.to}
                 onClick={handleDrawerToggle}
-                sx={{
-                  "&:hover": {
-                    backgroundColor: "#f5f5f5",
-                  },
-                }}
+                sx={{ "&:hover": { backgroundColor: "#f5f5f5" } }}
               >
                 <ListItemText
                   primary={item.key}
-                  sx={{
-                    textAlign: "center",
-                    fontWeight: "600",
-                    color: "#1f4074",
-                  }}
+                  sx={{ textAlign: "center", fontWeight: "600", color: "#1f4074" }}
                 />
               </ListItem>
             ))}
+            {/* Mobile Login Button */}
+            <ListItem
+              button
+              component="a"
+              href="/login"
+              onClick={handleDrawerToggle}
+              sx={{
+                mt: 1,
+                textAlign: "center",
+                backgroundColor: "#1f4074",
+                color: "#fff",
+                "&:hover": { backgroundColor: "#e6b800" },
+              }}
+            >
+              <ListItemText
+                primary="Login"
+                sx={{ fontWeight: "700" }}
+              />
+            </ListItem>
           </List>
         </Box>
       </Drawer>

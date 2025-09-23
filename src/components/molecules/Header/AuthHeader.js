@@ -12,7 +12,7 @@ const AuthHeader = () => {
                 component="img"
                 sx={{ height: '80px', width: '80px', mr: 1.5 }}
                 alt=""
-                src={`${process.env.PUBLIC_URL}/assets/images/logo.png`}
+                src={`${process.env.PUBLIC_URL}/assets/images/logo_clean.png`}
               />
             </Grid>
             <Grid item size={{ xs: 4, md: 4 }} sx={{display: {xs: 'none', md: 'flex'}}}>

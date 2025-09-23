@@ -242,3 +242,19 @@ export const FIND_INVOICE_BY_SEARCH = gql`
     }
   }
 `;
+export const CONTACT_US_LIST = gql`
+  query {
+    contactList {
+      response {
+        _id
+        id
+        name
+        email
+        mobile
+        subject
+        message
+        createdAt
+      }
+    }
+  }
+`;

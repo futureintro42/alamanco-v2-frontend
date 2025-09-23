@@ -152,3 +152,13 @@ export const DELETE_INVOICE = gql`
     }
   }
 `;
+
+export const CONTACT_US = gql`
+  mutation createContact($input: contactInput!) {
+    createContact(input: $input) {
+      hasError
+      message
+      severity
+    }
+  }
+`;

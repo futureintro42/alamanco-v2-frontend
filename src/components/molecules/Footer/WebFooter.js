@@ -1,5 +1,3 @@
-// src/components/Footer.js
-import React from "react";
 import {
   Box,
   Container,
@@ -23,10 +21,10 @@ import {
 
 const WebFooter = () => {
   const NavLinks = [
-    { key: "Home", to: "https://alamanextuv.com/" },
-    { key: "About the company", to: "https://alamanextuv.com/ar/about.html" },
-    { key: "Our Services", to: "https://alamanextuv.com/ar/services.html" },
-    { key: "Contact Us", to: "https://alamanextuv.com/ar/contact.html" },
+    { key: "Home", to: "/" },
+    { key: "About the company", to: "/about-us" },
+    { key: "Our Services", to: "/services" },
+    { key: "Contact Us", to: "/contact-us" },
   ];
   return (
     <Box component="footer" sx={{ bgcolor: "#1f4074", color: "white", py: 6 }}>
@@ -58,7 +56,7 @@ const WebFooter = () => {
               </Box>
               <Box display="flex" alignItems="center" gap={1}>
                 <Email fontSize="small" />
-                <Typography variant="body2">Info@Alamanextuv.com</Typography>
+                <Typography variant="body2">info@alamancom.com</Typography>
               </Box>
             </Stack>
           </Grid>

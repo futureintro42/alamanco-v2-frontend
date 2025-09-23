@@ -15,6 +15,7 @@ import ReceiptIcon from "@mui/icons-material/Receipt";
 import AddCardIcon from "@mui/icons-material/AddCard";
 import PasswordIcon from "@mui/icons-material/Password";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import ContactMailIcon from "@mui/icons-material/ContactMail";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useSelector } from "react-redux";
 import {deleteCookie } from "../../../utils/utils";
@@ -165,6 +166,11 @@ const Navigation = React.memo(({ open, handleDrawerClose }) => {
         to="/certificate"
         primary="Certificate"
         icon={<ReceiptIcon fontSize="medium" />}
+      />
+      <ListItemLink
+        to="/contact-us-list"
+        primary="Contact Us List"
+        icon={<ContactMailIcon fontSize="medium" />}
       />
       <ListItemLink
         to="/change-password"

@@ -30,7 +30,7 @@ const HomeDetails = () => {
                 <Button
                     variant="contained"
                     onClick={() => navigate("/services")}
-                    sx={{ borderRadius: "25px", px: 4, py: 1.2 }}
+                    sx={{ borderRadius: "25px", px: 4, py: 1.2, backgroundColor: "#1f4074" }}
                 >
                     View All Services
                 </Button>

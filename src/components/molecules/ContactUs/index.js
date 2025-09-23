@@ -7,7 +7,10 @@ import {
   Grid,
   Stack,
   Paper,
+  Alert,
 } from "@mui/material";
+import { useMutation } from "@apollo/client";
+import { CONTACT_US } from "../../../constants/Mutation";
 import { Email, Phone, LocationOn } from "@mui/icons-material";
 
 const ContactUs = () => {
@@ -18,7 +21,11 @@ const ContactUs = () => {
     subject: "",
     message: "",
   });
+  const [severity, setSeverity] = React.useState("error");
+  const [message, setMessage] = React.useState("");
   const [errors, setErrors] = useState({});
+  const [createContact, { loading, error, data }] =
+    useMutation(CONTACT_US);
 
   const validate = () => {
     const errs = {};
@@ -38,9 +45,21 @@ const ContactUs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validate()) return;
-    console.log("Submitting form:", formData);
+    createContact({ variables: { input: formData } });
     setFormData({ name: "", email: "", mobile: "", subject: "", message: "" });
   };
+
+  // Response: Form submit handler
+  React.useEffect(() => {
+    if (!loading && !error && data) {
+      const response = data.createContact;
+      setSeverity(response.severity);
+      setMessage(response.message);
+      if (!response.error && response.severity.includes("success")) {
+        setFormData({ name: "", email: "", mobile: "", subject: "", message: "" });
+      }
+    }
+  }, [loading, error, data]);
 
   return (
     <Box sx={{ bgcolor: "#f9f9f9" }}>
@@ -71,6 +90,15 @@ const ContactUs = () => {
             elevation={3}
             sx={{ p: { xs: 3, md: 5 }, borderRadius: 3, bgcolor: "white" }}
           >
+            {severity && message && (
+              <Alert
+                variant="standard"
+                severity={severity}
+                sx={{ width: "100%", mt: 1 }}
+              >
+                {message}
+              </Alert>
+            )}
             <Box component="form" onSubmit={handleSubmit}>
               <Stack spacing={3}>
                 <TextField
@@ -183,7 +211,7 @@ const ContactUs = () => {
               sx={{ p: 3, display: "flex", gap: 2, alignItems: "center" }}
             >
               <Email sx={{ color: "#1f4074", fontSize: 28 }} />
-              <Typography variant="body1">Info@Alamanextuv.com</Typography>
+              <Typography variant="body1">info@alamancom.com</Typography>
             </Paper>
 
             <Paper elevation={2} sx={{ p: 3 }}>
