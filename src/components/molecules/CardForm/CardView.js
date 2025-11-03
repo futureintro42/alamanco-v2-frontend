@@ -220,12 +220,12 @@ const CardView = ({ dataRow }) => {
                     Tel: 012-2154356
                   </Typography>
                   <Typography sx={{ fontSize: ".75rem" }}>
-                    Email: Info@Alamanextuv.com
+                    Email: info@alamancom.com
                   </Typography>
                   <Typography sx={{ fontSize: ".75rem" }}>
                     Web:{" "}
-                    <Link href="https://alamanextuv.com/">
-                      www.alamanextuv.com
+                    <Link href="https://alamancom.com/">
+                      alamancom.com
                     </Link>
                   </Typography>
                 </Box>

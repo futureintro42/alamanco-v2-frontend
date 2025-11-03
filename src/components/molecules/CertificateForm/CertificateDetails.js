@@ -68,7 +68,7 @@ const CertificateDetails = ({ dataRow }) => {
                 SAFETY International Company For Inspection
               </Typography>
               <Typography variant="h5" component="h5">
-                <Link href="https://alamanextuv.com/">alamanextuv.com</Link>
+                <Link href="https://alamancom.com/">alamancom.com</Link>
               </Typography>
               <Divider
                 sx={{

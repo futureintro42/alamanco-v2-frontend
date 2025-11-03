@@ -53,8 +53,8 @@ export default function AuthFooter() {
               <Grid item xs={12}>
                   <Typography sx={{ fontSize: ".75rem" }}>
                     Web:{" "}
-                    <Link href="https://alamanextuv.com/">
-                      www.alamanextuv.com
+                    <Link href="https://alamancom.com/">
+                      alamancom.com
                     </Link>
                   </Typography>
               </Grid>
